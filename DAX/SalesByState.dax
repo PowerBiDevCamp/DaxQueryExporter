@@ -1,0 +1,10 @@
+﻿DEFINE
+MEASURE Sales[Sales Revenue] = SUM(Sales[SalesAmount])
+MEASURE Sales[Units Sold] = SUM(Sales[Quantity])
+Evaluate
+SUMMARIZECOLUMNS(
+  Customers[State],
+  "Sales Revenue", [Sales Revenue],
+  "Units Sold", [Units Sold]
+)
+ORDER BY [Sales Revenue] DESC
